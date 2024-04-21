@@ -1,5 +1,5 @@
-# StormSense
+# WeatherWise
 A simple well rounded Weather App using real-time data for most cities around the world! 
 
 
-Uses latest CSS Bootstrap 5, All Front-End
+Uses HTML, Bootstrap, CSS, Javscript.
