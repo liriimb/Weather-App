@@ -85,3 +85,23 @@ searchForm.addEventListener('submit', e => {
 
 
 })
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var complaint = document.getElementById('complaint').value;
+
+  // Send email using EmailJS
+  emailjs.send("service_p38fwhw", "weatherwise2005@gmail.com", {
+    name: name,
+    email: email,
+    complaint: complaint
+  }).then(function(response) {
+    console.log("Email sent:", response);
+    alert("Email sent successfully!");
+  }, function(error) {
+    console.error("Email failed to send:", error);
+    alert("Failed to send email. Please try again later.");
+  });
+});

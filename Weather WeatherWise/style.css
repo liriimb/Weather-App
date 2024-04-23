@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
 
+
+
+
+
 body {
   font-family: 'Raleway', sans-serif;
   background: #e0e0e0;
   color: #707070;
   margin: 0;
   padding: 0;
+  background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect fill='none' stroke-width='117.6' stroke-opacity='0.07' id='a' x='-400' y='-300' width='800' height='600'/%3E%3C/defs%3E%3Cg transform='scale(0.811)' style='transform-origin:center'%3E%3Cg transform='rotate(25.2 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(-70.4 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23000' href='%23a' transform='rotate(4.4 0 0) scale(1.044)'/%3E%3Cuse stroke='%23000011' href='%23a' transform='rotate(8.8 0 0) scale(1.088)'/%3E%3Cuse stroke='%23000022' href='%23a' transform='rotate(13.2 0 0) scale(1.132)'/%3E%3Cuse stroke='%23000033' href='%23a' transform='rotate(17.6 0 0) scale(1.176)'/%3E%3Cuse stroke='%23000044' href='%23a' transform='rotate(22 0 0) scale(1.22)'/%3E%3Cuse stroke='%23000055' href='%23a' transform='rotate(26.4 0 0) scale(1.264)'/%3E%3Cuse stroke='%23000066' href='%23a' transform='rotate(30.8 0 0) scale(1.308)'/%3E%3Cuse stroke='%23000077' href='%23a' transform='rotate(35.2 0 0) scale(1.352)'/%3E%3Cuse stroke='%23000088' href='%23a' transform='rotate(39.6 0 0) scale(1.396)'/%3E%3Cuse stroke='%23000099' href='%23a' transform='rotate(44 0 0) scale(1.44)'/%3E%3Cuse stroke='%230000aa' href='%23a' transform='rotate(48.4 0 0) scale(1.484)'/%3E%3Cuse stroke='%230000bb' href='%23a' transform='rotate(52.8 0 0) scale(1.528)'/%3E%3Cuse stroke='%230000cc' href='%23a' transform='rotate(57.2 0 0) scale(1.572)'/%3E%3Cuse stroke='%230000dd' href='%23a' transform='rotate(61.6 0 0) scale(1.616)'/%3E%3Cuse stroke='%230000ee' href='%23a' transform='rotate(66 0 0) scale(1.66)'/%3E%3Cuse stroke='%2300F' href='%23a' transform='rotate(70.4 0 0) scale(1.704)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
 }
 
 .container {
@@ -99,4 +107,8 @@ body {
   font-size: 50px;
   font-weight: 100;
   letter-spacing: -2px;
+}
+
+.navbarcolor{
+  background-color: #6f42c1;
 }
