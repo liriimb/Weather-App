@@ -14,7 +14,7 @@ const requestCity = async (city) => {
 
     //make fetch call (promise call)
     const response = await fetch(baseURL + query);
-
+    
     //promise data
     const data = await response.json();
     return data;

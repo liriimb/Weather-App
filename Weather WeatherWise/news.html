@@ -4,50 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherWise</title>
-     <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     <link rel="stylesheet" href="style.css" />
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg ms-auto   fs-4  bg-secondary  sticky-top">
-    <div class="container-fluid ">
-      <a class="navbar-brand  fs-3 flex-column text-white ms-auto me-5" id="top">WeatherWise</a>
-      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav  ms-5 ms-2 mb-lg-0 ">
-          <a class="nav-link text-white  active" aria-current="page" href="index.html">Home</a>
-          <a class="nav-link text-white  " href="contact.html">Contact Us</a>
-          <a class="nav-link text-white  " href="news.html">Subscribe to our Newsletter!</a>
+    <nav class="navbar navbar-expand-lg fs-4 sticky-top navbarcolor">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3 text-white ms-auto me-5" id="top">WeatherWise</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-5 ms-2 mb-lg-0">
+                    <a class="nav-link text-white active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link text-white" href="contact.html">Contact Us</a>
+                    <a class="nav-link text-white" href="news.html">Subscribe to our Newsletter!</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container my-5 text-center ">
-    <h1>Weather News</h1>
-    <h2>Recent Weather Events</h2>
-    <ul>
-      <li><strong>Hurricane Season:</strong> The Atlantic hurricane season typically runs from June 1 to November 30, with the peak of the season occurring from mid-August to late October.</li>
-      <li><strong>Heatwaves:</strong> Heatwaves have become more frequent and intense in recent years, affecting regions around the world.</li>
-      <li><strong>Wildfires:</strong> Climate change has contributed to longer and more severe wildfire seasons in many parts of the world.</li>
-      <li><strong>Flooding:</strong> Heavy rainfall and increased risk of flooding are becoming more common due to climate change.</li>
-    </ul>
-    
-    <h2>Subscribe to Our Newsletter</h2>
-    <form id="subscribeForm">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br><br>
-      
-      <button type="submit">Subscribe</button>
-    </form>
-    <div id="subscribeMessage"></div>
-  </div>
-  
+    <main class="container my-5 text-center">
+        <h1 class="display-4">Weather News</h1>
+        <h2 class="h3">Recent Weather Events</h2>
+        <ul class="list-unstyled" class="lighter-text">
+            <li><strong>Hurricane Season:</strong> The Atlantic hurricane season typically runs from June 1 to November 30, with the peak of the season occurring from mid-August to late October.</li>
+            <li><strong>Heatwaves:</strong> Heatwaves have become more frequent and intense in recent years, affecting regions around the world.</li>
+            <li><strong>Wildfires:</strong> Climate change has contributed to longer and more severe wildfire seasons in many parts of the world.</li>
+            <li><strong>Flooding:</strong> Heavy rainfall and increased risk of flooding are becoming more common due to climate change.</li>
+        </ul>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <h2 class="h3">Subscribe to Our Newsletter</h2>
+        <form id="subscribeForm" class="my-3">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div id="subscribeMessage"></div>
+    </main>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

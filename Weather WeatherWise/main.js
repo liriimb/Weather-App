@@ -13,6 +13,33 @@ const isDayTime = (icon) => {
     if (icon.includes('d')) { return true }
     else { return false }
 }
+
+// Function to create sparkle effect
+const createSparkle = (x, y) => {
+  const sparkle = document.createElement('div');
+  sparkle.classList.add('sparkle');
+  sparkle.style.left = `${x}px`;
+  sparkle.style.top = `${y}px`;
+  sparkle.style.position = 'absolute';
+  sparkle.style.pointerEvents = 'none'; // Prevent mouse events
+
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+      sparkle.remove();
+  }, 1000); // Remove sparkle after 1 second
+};
+
+// Trigger sparkle effect at search input
+const triggerSparkleEffect = () => {
+  const boundingRect = cityValue.getBoundingClientRect(); // Use cityValue instead
+  for (let i = 0; i < 10; i++) {
+      const randomX = boundingRect.left + Math.random() * boundingRect.width;
+      const randomY = boundingRect.top + Math.random() * boundingRect.height;
+      createSparkle(randomX, randomY);
+  }
+};
+
 updateWeatherApp = (city) => {
     console.log(city);
     const imageName = city.weather[0].icon;
@@ -64,27 +91,73 @@ updateWeatherApp = (city) => {
 
     }
 
-    cardInfo.classList.remove('d-none');
+     // Trigger animation by showing the card with the new data
+     cardInfo.classList.remove('d-none');
+     cardInfo.classList.add('show');  // Add 'show' class to trigger the animation
+ 
+     if (isDayTime(imageName)) {
+         console.log('day');
+         timeImage.setAttribute('src', 'img/day_image.svg');
+     } else {
+         console.log('night');
+         timeImage.setAttribute('src', 'img/night_image.svg');
+     }
 }
 
+// Add an event listener to the form
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  triggerSparkleEffect(); // Call sparkle effect
+  const citySearched = cityValue.value.trim(); // Trim whitespace from the input
+  searchForm.reset(); // Reset the form after submission
 
+  // Check if the input is not empty
+  if (citySearched) {
+      // Fetch the weather data
+      requestCity(citySearched)
+          .then((data) => {
+              updateWeatherApp(data, cityValue.value); // Update the weather app with the fetched data
+              triggerSparkleEffect(); // Trigger the sparkle effect
+          })
+          .catch((error) => {
+              console.error(error);
+              showError('Could not find the city or country. Please try again.'); // Show error message
+          });
+  } else {
+      showError('Please enter a city or country'); // Show error if input is empty
+  }
+});
 
-//add an event listner to the form
-searchForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const citySearched = cityValue.value.trim();
-    console.log(citySearched);
-    searchForm.reset();
+const fetchWeather = async (city) => {
+  try {
+      const API_KEY = 'f6731a1cc82b42539f8435c9f2828c43';
+      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
+      const response = await fetch(API_URL);
+      
+      if (!response.ok) throw new Error('City not found');
+      
+      const data = await response.json();
+      updateWeatherApp(data);
+  } catch (error) {
+      console.error(error);
+      showError('Could not find the city. Please try again.');
+  }
+}
 
-    requestCity(citySearched)
-        .then((data) => {
-            updateWeatherApp(data);
-        })
-        .catch((error) => { console.log(error) })
+const showError = (message) => {
+  const errorDiv = document.createElement('div');
+  errorDiv.classList.add('error-message');
+  errorDiv.textContent = message;
+  searchForm.appendChild(errorDiv);
+  errorDiv.style.opacity = 1;
+  setTimeout(() => {
+      errorDiv.style.opacity = 0;
+      setTimeout(() => {
+          errorDiv.remove();
+      }, 500);
+  }, 2000);
+}
 
-
-
-})
 document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault();
 

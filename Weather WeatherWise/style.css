@@ -1,37 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
 
-
-
-
+html, body {
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Raleway', sans-serif;
-  background: #e0e0e0;
+  background: linear-gradient(180deg, #0e4b8c 0%, #5da9e9 40%, #8cc0e0 70%, white 100%);
+  background-size: cover;
+  background-attachment: fixed;
   color: #707070;
-  margin: 0;
-  padding: 0;
-  background-color: #000000;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect fill='none' stroke-width='117.6' stroke-opacity='0.07' id='a' x='-400' y='-300' width='800' height='600'/%3E%3C/defs%3E%3Cg transform='scale(0.811)' style='transform-origin:center'%3E%3Cg transform='rotate(25.2 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(-70.4 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23000' href='%23a' transform='rotate(4.4 0 0) scale(1.044)'/%3E%3Cuse stroke='%23000011' href='%23a' transform='rotate(8.8 0 0) scale(1.088)'/%3E%3Cuse stroke='%23000022' href='%23a' transform='rotate(13.2 0 0) scale(1.132)'/%3E%3Cuse stroke='%23000033' href='%23a' transform='rotate(17.6 0 0) scale(1.176)'/%3E%3Cuse stroke='%23000044' href='%23a' transform='rotate(22 0 0) scale(1.22)'/%3E%3Cuse stroke='%23000055' href='%23a' transform='rotate(26.4 0 0) scale(1.264)'/%3E%3Cuse stroke='%23000066' href='%23a' transform='rotate(30.8 0 0) scale(1.308)'/%3E%3Cuse stroke='%23000077' href='%23a' transform='rotate(35.2 0 0) scale(1.352)'/%3E%3Cuse stroke='%23000088' href='%23a' transform='rotate(39.6 0 0) scale(1.396)'/%3E%3Cuse stroke='%23000099' href='%23a' transform='rotate(44 0 0) scale(1.44)'/%3E%3Cuse stroke='%230000aa' href='%23a' transform='rotate(48.4 0 0) scale(1.484)'/%3E%3Cuse stroke='%230000bb' href='%23a' transform='rotate(52.8 0 0) scale(1.528)'/%3E%3Cuse stroke='%230000cc' href='%23a' transform='rotate(57.2 0 0) scale(1.572)'/%3E%3Cuse stroke='%230000dd' href='%23a' transform='rotate(61.6 0 0) scale(1.616)'/%3E%3Cuse stroke='%230000ee' href='%23a' transform='rotate(66 0 0) scale(1.66)'/%3E%3Cuse stroke='%2300F' href='%23a' transform='rotate(70.4 0 0) scale(1.704)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-background-attachment: fixed;
-background-size: cover;
+}
+
+.text-center {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .container {
   max-width: 400px;
   min-width: 400px;
+  margin: auto;
+  padding: 20px; /* Adjust padding as needed */
 }
+
 
 .title {
   font-weight: 700;
   font-size: 50px;
 }
 
-.form-rounded {
-  border-radius: 2em;
+.animated-title {
+  animation: textAnimation 10s ease-in-out infinite;
 }
 
-.back-card {
-  border-radius: 40px !important;
+@keyframes textAnimation {
+  0%, 100% { color: white; }
+  50% { color: #5da9e9; }
+  80% { color: #f9d71c; }
+}
+
+.form-rounded {
+  border-radius: 2em;
 }
 
 .city-name {
@@ -58,6 +72,7 @@ background-size: cover;
   letter-spacing: -5px;
   white-space: nowrap;
 }
+
 .card-mid {
   line-height: 0.5;
 }
@@ -68,47 +83,206 @@ background-size: cover;
   font-size: 1em;
   text-transform: capitalize;
 }
-.high::before {
-  content: '';
-  background: url('img/up.svg') no-repeat;
-  width: 10px;
-  height: 15px;
-  display: inline-block;
-  position: relative;
-  top: 3px;
-}
 
-.low::before {
-  content: '';
-  background: url('img/down.svg') no-repeat;
-  width: 10px;
-  height: 15px;
-  display: inline-block;
-  position: relative;
-  top: 3px;
-}
 .icon-container {
   border-radius: 100%;
   width: 100px;
   height: 100px;
   background: #202020;
 }
-.icon-container img {
-  margin: auto;
-}
 
 .card-bottom {
-  line-height: 0.5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+
+
 .card-bottom span {
   font-size: 12px;
 }
+
 .card-bottom p {
   font-size: 50px;
   font-weight: 100;
   letter-spacing: -2px;
+  margin: 10px 0;
 }
 
-.navbarcolor{
-  background-color: #6f42c1;
+.navbarcolor {
+  background-color: #0a3d91;
+  padding: 1rem 0.75rem;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  margin-right: 1.5rem;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.95); 
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #f5b300;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+p {
+  font-size: 18px;
+  color: #A8C6E9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  line-height: 1.6;
+}
+
+input::placeholder {
+  text-align: center; 
+}
+
+input[name="city"] {
+  font-size: 18px;  
+  text-align: center; 
+  border-radius: 2em; 
+  border: 2px solid #5da9e9; 
+  transition: border 0.3s, box-shadow 0.3s; 
+}
+
+input[name="city"]:focus {
+  outline: none; 
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.5); 
+  border-color: #0e4b8c; 
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+  opacity: 0;
+  animation: showError 0.5s forwards;
+  margin-top: 10px;
+}
+
+@keyframes showError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showCard {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.back-card {
+  border-radius: 40px !important;
+  opacity: 0;
+  transform: translateY(100px); 
+  transition: opacity 0.5s, transform 0.5s; 
+}
+
+.back-card.show {
+  animation: showCard 0.5s forwards; 
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5); /* Adjust scaling to make the sparkle more noticeable */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  width: 0; /* Set width to 0 */
+  height: 0; /* Set height to 0 */
+  border: 10px solid transparent; /* Increased border width for larger stars */
+  border-bottom-color: gold; /* Color for the bottom border */
+  clip-path: polygon(
+    50% 0%,  /* Top tip */
+    61% 35%, /* Right upper side */
+    98% 35%, /* Right side */
+    68% 57%, /* Bottom right side */
+    79% 91%, /* Bottom right tip */
+    50% 70%, /* Bottom middle */
+    21% 91%, /* Bottom left tip */
+    32% 57%, /* Bottom left side */
+    2% 35%,  /* Left side */
+    39% 35%  /* Left upper side */
+  );
+  opacity: 0;
+  animation: sparkle 1s ease-out;
+}
+
+.sparkle-container {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-form {
+  position: relative;
+  background-color: #0e4b8c; /* Dark cyan from your palette */
+  color: #707070;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-input {
+  color: #333; /* Lighter text color */
+  border: 2px solid #5da9e9; /* Matching border color */
+  border-radius: 1em; /* Rounded corners */
+  transition: border-color 0.3s;
+  text-align: center; /* Center text inside input */
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #0e4b8c; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 150, 255, 0.5);
+}
+
+.custom-button {
+  background-color: #0b6dc2; /* Button background color */
+  border-radius: 1em; /* Rounded corners */
+  padding: 10px 20px; /* Padding for the button */
+  margin-top: 10px; /* Space above button */
+  transition: background-color 0.3s; /* Transition for background color */
+  width: 100%; /* Full width button */
+}
+
+.custom-button:hover {
+  background-color: #7f96ad; /* Darker shade on hover */
+}
+
+.lighter-text {
+  color: #A8C6E9; /* Lighter text color */
 }
