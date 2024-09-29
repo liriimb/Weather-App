@@ -11,7 +11,7 @@ body {
   background: linear-gradient(180deg, #0e4b8c 0%, #5da9e9 40%, #8cc0e0 70%, white 100%);
   background-size: cover;
   background-attachment: fixed;
-  color: #707070;
+  color: #0a3d91; /* Lighter text color */
 }
 
 .text-center {
@@ -281,8 +281,4 @@ input[name="city"]:focus {
 
 .custom-button:hover {
   background-color: #7f96ad; /* Darker shade on hover */
-}
-
-.lighter-text {
-  color: #A8C6E9; /* Lighter text color */
 }
