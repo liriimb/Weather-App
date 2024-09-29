@@ -11,7 +11,7 @@ body {
   background: linear-gradient(180deg, #0e4b8c 0%, #5da9e9 40%, #8cc0e0 70%, white 100%);
   background-size: cover;
   background-attachment: fixed;
-  color: #0a3d91; /* Lighter text color */
+  color: #0a3d91;
 }
 
 .text-center {
@@ -25,9 +25,8 @@ body {
   max-width: 400px;
   min-width: 400px;
   margin: auto;
-  padding: 20px; /* Adjust padding as needed */
+  padding: 20px;
 }
-
 
 .title {
   font-weight: 700;
@@ -68,7 +67,7 @@ body {
 
 .temp span {
   font-weight: 100;
-  font-size: 5em;
+  font-size: 6em;
   letter-spacing: -5px;
   white-space: nowrap;
 }
@@ -94,19 +93,22 @@ body {
 .card-bottom {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  padding: 5px;
+  font-size: 1.2em;
+  color: #333;
 }
 
 
 .card-bottom span {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .card-bottom p {
-  font-size: 50px;
+  font-size: 32px;
   font-weight: 100;
   letter-spacing: -2px;
-  margin: 10px 0;
+  margin: 0;
 }
 
 .navbarcolor {
@@ -185,6 +187,16 @@ input[name="city"]:focus {
   }
 }
 
+@keyframes errorAnimation {
+  0% { background-color: white; }
+  50% { background-color: red; }
+  100% { background-color: white; }
+}
+
+input[name="city"].error {
+  animation: errorAnimation 0.5s forwards;
+}
+
 @keyframes showCard {
   0% {
     transform: translateY(100px);
@@ -224,21 +236,21 @@ input[name="city"]:focus {
 
 .sparkle {
   position: absolute;
-  width: 0; /* Set width to 0 */
-  height: 0; /* Set height to 0 */
-  border: 10px solid transparent; /* Increased border width for larger stars */
-  border-bottom-color: gold; /* Color for the bottom border */
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: gold;
   clip-path: polygon(
-    50% 0%,  /* Top tip */
-    61% 35%, /* Right upper side */
-    98% 35%, /* Right side */
-    68% 57%, /* Bottom right side */
-    79% 91%, /* Bottom right tip */
-    50% 70%, /* Bottom middle */
-    21% 91%, /* Bottom left tip */
-    32% 57%, /* Bottom left side */
-    2% 35%,  /* Left side */
-    39% 35%  /* Left upper side */
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%, 
+    32% 57%,
+    2% 35%,
+    39% 35% 
   );
   opacity: 0;
   animation: sparkle 1s ease-out;
@@ -249,36 +261,40 @@ input[name="city"]:focus {
   display: inline-block;
 }
 
+.card.sparkle-effect {
+  animation: sparkle 1s ease-out;
+}
+
 .custom-form {
   position: relative;
-  background-color: #0e4b8c; /* Dark cyan from your palette */
+  background-color: #0e4b8c;
   color: #707070;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .custom-input {
-  color: #333; /* Lighter text color */
-  border: 2px solid #5da9e9; /* Matching border color */
-  border-radius: 1em; /* Rounded corners */
+  color: #333;
+  border: 2px solid #5da9e9;
+  border-radius: 1em;
   transition: border-color 0.3s;
-  text-align: center; /* Center text inside input */
+  text-align: center;
 }
 
 .custom-input:focus {
   outline: none;
-  border-color: #0e4b8c; /* Change border color on focus */
+  border-color: #0e4b8c;
   box-shadow: 0 0 5px rgba(0, 150, 255, 0.5);
 }
 
 .custom-button {
-  background-color: #0b6dc2; /* Button background color */
-  border-radius: 1em; /* Rounded corners */
-  padding: 10px 20px; /* Padding for the button */
-  margin-top: 10px; /* Space above button */
-  transition: background-color 0.3s; /* Transition for background color */
-  width: 100%; /* Full width button */
+  background-color: #0b6dc2;
+  border-radius: 1em;
+  padding: 10px 20px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+  width: 100%;
 }
 
 .custom-button:hover {
-  background-color: #7f96ad; /* Darker shade on hover */
+  background-color: #7f96ad;
 }

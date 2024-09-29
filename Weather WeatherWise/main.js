@@ -21,22 +21,31 @@ const createSparkle = (x, y) => {
   sparkle.style.left = `${x}px`;
   sparkle.style.top = `${y}px`;
   sparkle.style.position = 'absolute';
-  sparkle.style.pointerEvents = 'none'; // Prevent mouse events
+  sparkle.style.pointerEvents = 'none';
 
   document.body.appendChild(sparkle);
 
   setTimeout(() => {
       sparkle.remove();
-  }, 1000); // Remove sparkle after 1 second
+  }, 1700);
 };
 
-// Trigger sparkle effect at search input
+// Trigger sparkle effect at search input and card
 const triggerSparkleEffect = () => {
-  const boundingRect = cityValue.getBoundingClientRect(); // Use cityValue instead
+  // Get bounding rect for input
+  const inputRect = cityValue.getBoundingClientRect();
   for (let i = 0; i < 10; i++) {
-      const randomX = boundingRect.left + Math.random() * boundingRect.width;
-      const randomY = boundingRect.top + Math.random() * boundingRect.height;
-      createSparkle(randomX, randomY);
+      const randomXInput = inputRect.left + Math.random() * inputRect.width;
+      const randomYInput = inputRect.top + Math.random() * inputRect.height;
+      createSparkle(randomXInput, randomYInput);
+  }
+
+  // Get bounding rect for card
+  const cardRect = cardInfo.getBoundingClientRect();
+  for (let i = 0; i < 10; i++) {
+      const randomXCard = cardRect.left + Math.random() * cardRect.width;
+      const randomYCard = cardRect.top + Math.random() * cardRect.height;
+      createSparkle(randomXCard, randomYCard);
   }
 };
 
@@ -92,8 +101,8 @@ updateWeatherApp = (city) => {
     }
 
      // Trigger animation by showing the card with the new data
-     cardInfo.classList.remove('d-none');
-     cardInfo.classList.add('show');  // Add 'show' class to trigger the animation
+      cardInfo.classList.remove('d-none');
+      cardInfo.classList.add('show');
  
      if (isDayTime(imageName)) {
          console.log('day');
@@ -107,24 +116,29 @@ updateWeatherApp = (city) => {
 // Add an event listener to the form
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  triggerSparkleEffect(); // Call sparkle effect
-  const citySearched = cityValue.value.trim(); // Trim whitespace from the input
+  const citySearched = cityValue.value.trim();
   searchForm.reset(); // Reset the form after submission
+
+ // Reset previous error state
+ cityValue.classList.remove('error'); // Remove error class if it was set
 
   // Check if the input is not empty
   if (citySearched) {
       // Fetch the weather data
       requestCity(citySearched)
           .then((data) => {
+              cityValue.classList.remove('error'); // Remove error class if valid input
               updateWeatherApp(data, cityValue.value); // Update the weather app with the fetched data
-              triggerSparkleEffect(); // Trigger the sparkle effect
+              triggerSparkleEffect(); // Trigger the sparkle effect only on valid input
           })
           .catch((error) => {
-              console.error(error);
-              showError('Could not find the city or country. Please try again.'); // Show error message
+            console.error(error);
+            cityValue.classList.add('error'); // Add error class for input
+            showError('Could not find the city or country. Please try again.'); // Show error message
           });
   } else {
-      showError('Please enter a city or country'); // Show error if input is empty
+    cityValue.classList.add('error'); // Add error class for empty input
+    showError('Please enter a city or country'); // Show error if input is empty
   }
 });
 
