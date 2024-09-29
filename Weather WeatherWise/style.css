@@ -55,6 +55,7 @@ body {
 .city-name p {
   font-size: 16pt;
   font-weight: 400;
+  color: #f5b300;
 }
 
 .city-name span {
