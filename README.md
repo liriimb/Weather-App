@@ -1,3 +1,3 @@
-#WeatherWise Pre-Commits for mainbranch just as a precaution
-REMINDER: DARK MODE, NEWS ON THE SIDE?, FAQ?, BACKGROUND COLOR(INTERACTIVE?), ABOUT US(left side),
-FIX BOOTSTRAP VERSION IN NEWS.HTML, CONTACT.HTML
+WeatherWise
+
+A simple well rounded Weather App using real-time data for most cities around the world!
